@@ -29,8 +29,7 @@ public class User
     public string Password { get; set; } = string.Empty;
 
     [Required]
-    [MaxLength(25)]
-    public string Status { get; set; } = true;
+    public bool Status { get; set; } = true;
 
     [Required]
     public DateTime CreatedAt { get; set; }
