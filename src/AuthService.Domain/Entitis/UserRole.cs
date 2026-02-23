@@ -18,7 +18,10 @@ public class UserRole
     public string RoleId { get; set; } = string.Empty;
 
     [Required]
-    public DateTime AssignedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow; 
+
+    [Required]
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow; 
 
     //Relaciones
     public User User { get; set; } = null!;

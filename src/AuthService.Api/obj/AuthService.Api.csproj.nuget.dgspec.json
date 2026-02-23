@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Api\\AuthService.Api.csproj": {}
+    "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj": {}
   },
   "projects": {
-    "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Api\\AuthService.Api.csproj": {
+    "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Api\\AuthService.Api.csproj",
+        "projectUniqueName": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
         "projectName": "AuthService.Api",
-        "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Api\\AuthService.Api.csproj",
+        "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Api\\AuthService.Api.csproj",
         "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Api\\obj\\",
+        "outputPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,14 +26,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\AuthService.Application.csproj": {
-                "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\AuthService.Application.csproj"
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj"
               },
-              "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
-                "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
               },
-              "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
-                "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj"
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj"
               }
             }
           }
@@ -61,9 +61,19 @@
               "target": "Package",
               "version": "[8.0.22, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
             "NetEscapades.AspNetCore.SecurityHeaders": {
               "target": "Package",
               "version": "[1.2.0, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.2, )"
             },
             "Serilog.AspNetCore": {
               "target": "Package",
@@ -93,18 +103,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\dotnet-sdk-8.0.418-win-x64\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\AuthService.Application.csproj": {
+    "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\AuthService.Application.csproj",
+        "projectUniqueName": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
         "projectName": "AuthService.Application",
-        "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\AuthService.Application.csproj",
+        "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj",
         "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Application\\obj\\",
+        "outputPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -119,8 +129,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
-                "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
               }
             }
           }
@@ -161,18 +171,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\dotnet-sdk-8.0.418-win-x64\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+    "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+        "projectUniqueName": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
         "projectName": "AuthService.Domain",
-        "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+        "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
         "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\obj\\",
+        "outputPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -229,18 +239,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\dotnet-sdk-8.0.418-win-x64\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
+    "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
+        "projectUniqueName": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
         "projectName": "AuthService.Persistence",
-        "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
+        "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\AuthService.Persistence.csproj",
         "packagesPath": "C:\\Users\\Informatica\\.nuget\\packages\\",
-        "outputPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Persistence\\obj\\",
+        "outputPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Informatica\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -255,8 +265,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
-                "projectPath": "C:\\2024227\\Bimestre 1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Application\\AuthService.Application.csproj"
+              },
+              "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj": {
+                "projectPath": "C:\\2024227\\b1\\authentication-service\\auth-service\\src\\AuthService.Domain\\AuthService.Domain.csproj"
               }
             }
           }
@@ -284,11 +297,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.9, )"
+              "version": "[8.0.11, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.11, )"
             }
           },
           "imports": [
@@ -307,7 +320,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\dotnet-sdk-8.0.418-win-x64\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

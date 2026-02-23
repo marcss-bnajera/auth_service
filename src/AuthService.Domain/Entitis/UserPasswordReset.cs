@@ -13,7 +13,7 @@ public class UserPasswordReset
     public string UserId { get; set; } = string.Empty;
 
     [MaxLength(255)]
-    public string PasswordResetToken { get; set; } = string.Empty;
+    public string Token { get; set; } = string.Empty;
 
     public DateTime PasswordResetTokenExpiry { get; set; }
 

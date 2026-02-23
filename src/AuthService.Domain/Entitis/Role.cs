@@ -16,6 +16,12 @@ public class Role
     [MaxLength(255)]
     public string Description { get; set; } = string.Empty;
     
+    [Required]
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    [Required]
+    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+    
     // Relaciones con UserRole
     public ICollection<UserRole> UserRoles { get; set; } = [];
 }

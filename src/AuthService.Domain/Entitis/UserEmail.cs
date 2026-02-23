@@ -10,6 +10,10 @@ public class UserEmail
     [Required]
     [MaxLength(16)]
     public string UserId { get; set; } = string.Empty;
+
+    [Required]
+    [MaxLength(255)]
+    public string Email { get; set; } = string.Empty;
     
     [Required]
     public bool EmailVerified { get; set; } = false;
