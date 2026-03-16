@@ -63,3 +63,16 @@ C:\2024227\b2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.D
 C:\2024227\b2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\refint\AuthService.Domain.dll
 C:\2024227\b2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.pdb
 C:\2024227\b2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\ref\AuthService.Domain.dll
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\bin\Debug\net8.0\AuthService.Domain.deps.json
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\bin\Debug\net8.0\AuthService.Domain.dll
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\bin\Debug\net8.0\AuthService.Domain.pdb
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.csproj.AssemblyReference.cache
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.AssemblyInfoInputs.cache
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.AssemblyInfo.cs
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.csproj.CoreCompileInputs.cache
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.sourcelink.json
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.dll
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\refint\AuthService.Domain.dll
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\AuthService.Domain.pdb
+C:\workspace\6t0\Bimestre2\auth_service\src\AuthService.Domain\obj\Debug\net8.0\ref\AuthService.Domain.dll
