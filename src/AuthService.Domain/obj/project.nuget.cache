@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EpJ5XKP3qnQ=",
+  "dgSpecHash": "wzl18PUf+9I=",
   "success": true,
-  "projectFilePath": "C:\\2024227\\b1\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
+  "projectFilePath": "C:\\2024227\\b2\\auth_service\\src\\AuthService.Domain\\AuthService.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Informatica\\.nuget\\packages\\efcore.namingconventions\\9.0.0\\efcore.namingconventions.9.0.0.nupkg.sha512",
     "C:\\Users\\Informatica\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0\\microsoft.entityframeworkcore.9.0.0.nupkg.sha512",

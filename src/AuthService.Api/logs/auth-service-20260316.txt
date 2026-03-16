@@ -1,0 +1,236 @@
+[2026-03-16 08:31:21 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 08:31:21 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.PostgresException (0x80004005): 28P01: la autentificaci�n password fall� para el usuario �tu_usuario�
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.AuthenticateSASL(List`1 mechanisms, String username, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.UnpooledDataSource.Get(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlDatabaseCreator.Exists(Boolean async, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlDatabaseCreator.Exists(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreatedAsync(CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\b2\auth_service\src\AuthService.Api\Program.cs:line 173
+  Exception data:
+    Severity: FATAL
+    SqlState: 28P01
+    MessageText: la autentificaci�n password fall� para el usuario �tu_usuario�
+    File: auth.c
+    Line: 332
+    Routine: auth_failed
+[2026-03-16 08:32:59 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 08:33:00 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 08:33:00 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 08:33:00 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}
+[2026-03-16 08:33:21 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNK3D3SFC1NJ:00000001","RequestPath":"/health","ConnectionId":"0HNK3D3SFC1NJ"}
+[2026-03-16 08:33:21 INF] HTTP GET /health responded 200 in 94.6919 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NJ:00000001","ConnectionId":"0HNK3D3SFC1NJ"}
+[2026-03-16 08:33:21 INF] HTTP GET /favicon.ico responded 404 in 1.8057 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NJ:00000002","ConnectionId":"0HNK3D3SFC1NJ"}
+[2026-03-16 08:33:42 INF] HTTP GET /register responded 404 in 1.8555 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NJ:00000003","ConnectionId":"0HNK3D3SFC1NJ"}
+[2026-03-16 08:33:52 INF] HTTP GET /health responded 200 in 3.6938 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NJ:00000004","ConnectionId":"0HNK3D3SFC1NJ"}
+[2026-03-16 08:35:33 INF] HTTP GET /api/v1/Auth/register responded 405 in 0.2663 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NK:00000003","ConnectionId":"0HNK3D3SFC1NK"}
+[2026-03-16 08:42:02 INF] HTTP GET /api/v1/Auth/profile responded 401 in 5.5779 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NN:00000001","ConnectionId":"0HNK3D3SFC1NN"}
+[2026-03-16 08:42:21 INF] HTTP GET /api/v1/Auth/profile responded 401 in 1.1951 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NN:00000002","ConnectionId":"0HNK3D3SFC1NN"}
+[2026-03-16 08:43:59 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3D3SFC1NO:00000001","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3D3SFC1NO"}
+System.InvalidOperationException: Default role not found.
+   at AuthService.Application.Services.AuthService.RegisterAsync(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 40
+   at AuthService.Api.Controllers.AuthController.Register(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 74
+   at lambda_method401(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 08:43:59 INF] HTTP POST /api/v1/Auth/register responded 404 in 440.0824 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NO:00000001","ConnectionId":"0HNK3D3SFC1NO"}
+[2026-03-16 08:44:11 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3D3SFC1NO:00000002","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3D3SFC1NO"}
+System.InvalidOperationException: Default role not found.
+   at AuthService.Application.Services.AuthService.RegisterAsync(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 40
+   at AuthService.Api.Controllers.AuthController.Register(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 74
+   at lambda_method401(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 08:44:11 INF] HTTP POST /api/v1/Auth/register responded 404 in 49.8879 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NO:00000002","ConnectionId":"0HNK3D3SFC1NO"}
+[2026-03-16 08:44:12 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3D3SFC1NO:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3D3SFC1NO"}
+System.InvalidOperationException: Default role not found.
+   at AuthService.Application.Services.AuthService.RegisterAsync(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 40
+   at AuthService.Api.Controllers.AuthController.Register(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 74
+   at lambda_method401(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 08:44:12 INF] HTTP POST /api/v1/Auth/register responded 404 in 17.1319 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NO:00000003","ConnectionId":"0HNK3D3SFC1NO"}
+[2026-03-16 08:44:53 INF] HTTP GET /api/v1/Auth/profile responded 401 in 5.6268 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NO:00000004","ConnectionId":"0HNK3D3SFC1NO"}
+[2026-03-16 08:45:03 INF] HTTP GET /health responded 200 in 0.2569 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3D3SFC1NO:00000005","ConnectionId":"0HNK3D3SFC1NO"}
+[2026-03-16 08:54:36 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 08:54:37 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 08:54:37 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 08:54:37 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}
+[2026-03-16 08:56:33 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNK3DGDSLUAG:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DGDSLUAG"}
+[2026-03-16 08:56:33 ERR] Critical Error: Role User not found in database. {"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"b93361bc-e7db-40ae-a555-b7db5f1d869a","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNK3DGDSLUAG:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DGDSLUAG"}
+[2026-03-16 08:56:33 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3DGDSLUAG:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DGDSLUAG"}
+AuthService.Application.Exceptions.BusinessException: El rol predeterminado no está configurado.
+   at AuthService.Application.Services.AuthService.RegisterAsync(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 45
+   at AuthService.Api.Controllers.AuthController.Register(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 74
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 08:56:34 INF] HTTP POST /api/v1/Auth/register responded 400 in 271.6301 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DGDSLUAG:00000003","ConnectionId":"0HNK3DGDSLUAG"}
+[2026-03-16 09:03:24 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 09:03:25 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 09:03:25 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 09:03:25 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}
+[2026-03-16 09:04:04 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNK3DKNLDF3P:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DKNLDF3P"}
+[2026-03-16 09:04:04 ERR] Critical Error: Role USER_ROLE not found in database. {"SourceContext":"AuthService.Application.Services.AuthService","ActionId":"bae93ae9-bcbe-481c-84e9-5c3547fe9b6a","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNK3DKNLDF3P:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DKNLDF3P"}
+[2026-03-16 09:04:04 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3DKNLDF3P:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DKNLDF3P"}
+AuthService.Application.Exceptions.BusinessException: El rol predeterminado no está configurado.
+   at AuthService.Application.Services.AuthService.RegisterAsync(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 45
+   at AuthService.Api.Controllers.AuthController.Register(RegisterDto registerDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 74
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 09:04:04 INF] HTTP POST /api/v1/Auth/register responded 400 in 267.6955 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DKNLDF3P:00000003","ConnectionId":"0HNK3DKNLDF3P"}
+[2026-03-16 09:05:32 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 09:05:33 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 09:05:33 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 09:05:33 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}
+[2026-03-16 09:06:19 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNK3DLTFONH0:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DLTFONH0"}
+[2026-03-16 09:06:41 ERR] Error sending email to eduardo@example.com {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"98a41399-68d5-4367-b363-34a6fd146b11","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNK3DLTFONH0:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3DLTFONH0"}
+System.Net.Sockets.SocketException (10060): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at AuthService.Application.Services.EmailService.ExecuteSendEmailAsync(String to, String subject, String body) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\EmailService.cs:line 82
+[2026-03-16 09:06:41 INF] HTTP POST /api/v1/Auth/register responded 201 in 22075.6127 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DLTFONH0:00000003","ConnectionId":"0HNK3DLTFONH0"}
+[2026-03-16 09:07:27 INF] HTTP GET /api/v1/Auth/profile responded 401 in 6.8812 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DLTFONH0:00000004","ConnectionId":"0HNK3DLTFONH0"}
+[2026-03-16 09:07:56 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3DLTFONH0:00000005","RequestPath":"/api/v1/Auth/profile/by-id","ConnectionId":"0HNK3DLTFONH0"}
+System.InvalidOperationException: Usuario con id 1 no encontrado
+   at AuthService.Persistence.Repositories.UserRepository.GetByIdAsync(String id) in C:\2024227\b2\auth_service\src\AuthService.Persistence\Repositories\UserRepository.cs:line 21
+   at AuthService.Application.Services.AuthService.GetUserByIdAsync(String userId) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 188
+   at AuthService.Api.Controllers.AuthController.GetProfileById(GetProfileByIdDto request) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 51
+   at lambda_method528(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 09:07:56 INF] HTTP POST /api/v1/Auth/profile/by-id responded 400 in 98.5391 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DLTFONH0:00000005","ConnectionId":"0HNK3DLTFONH0"}
+[2026-03-16 09:08:18 INF] HTTP POST /api/v1/Auth/profile/by-id responded 200 in 22.0802 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3DLTFONH0:00000006","ConnectionId":"0HNK3DLTFONH0"}
+[2026-03-16 10:31:03 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 10:31:04 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 10:31:04 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 10:31:04 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}
+[2026-03-16 10:33:17 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNK3F5RVSOQA:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3F5RVSOQA"}
+[2026-03-16 10:33:40 ERR] Error sending email to marcosbeteta07@gmail.com {"SourceContext":"AuthService.Application.Services.EmailService","ActionId":"2ac75daf-d467-4eb2-ae59-296c93b44dd8","ActionName":"AuthService.Api.Controllers.AuthController.Register (AuthService.Api)","RequestId":"0HNK3F5RVSOQA:00000003","RequestPath":"/api/v1/Auth/register","ConnectionId":"0HNK3F5RVSOQA"}
+System.Net.Sockets.SocketException (10060): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.Tasks.TaskToAsyncResult.End(IAsyncResult asyncResult)
+   at MailKit.Net.SocketUtils.SocketConnectState.OnEndConnect(IAsyncResult ar)
+--- End of stack trace from previous location ---
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, CancellationToken cancellationToken)
+   at MailKit.Net.SocketUtils.ConnectAsync(String host, Int32 port, IPEndPoint localEndPoint, Int32 timeout, CancellationToken cancellationToken)
+   at MailKit.MailService.ConnectNetworkAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MailKit.Net.Smtp.SmtpClient.ConnectAsync(String host, Int32 port, SecureSocketOptions options, CancellationToken cancellationToken)
+   at AuthService.Application.Services.EmailService.ExecuteSendEmailAsync(String to, String subject, String body) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\EmailService.cs:line 82
+[2026-03-16 10:33:40 INF] HTTP POST /api/v1/Auth/register responded 201 in 23321.9077 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQA:00000003","ConnectionId":"0HNK3F5RVSOQA"}
+[2026-03-16 10:34:15 INF] HTTP POST /api/v1/Auth/profile/by-id responded 200 in 73.2820 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQA:00000004","ConnectionId":"0HNK3F5RVSOQA"}
+[2026-03-16 10:37:42 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNK3F5RVSOQB:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNK3F5RVSOQB"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\b2\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\b2\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method563(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\b2\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-03-16 10:37:42 INF] HTTP POST /api/v1/Auth/login responded 400 in 218.1085 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQB:00000001","ConnectionId":"0HNK3F5RVSOQB"}
+[2026-03-16 10:38:22 INF] HTTP POST /api/v1/Auth/login responded 200 in 431.6390 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQB:00000002","ConnectionId":"0HNK3F5RVSOQB"}
+[2026-03-16 10:40:43 INF] HTTP GET /api/v1/Auth/profile responded 401 in 5.7947 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQC:00000001","ConnectionId":"0HNK3F5RVSOQC"}
+[2026-03-16 10:41:16 INF] HTTP GET /api/v1/Auth/profile responded 401 in 1.5066 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQE:00000001","ConnectionId":"0HNK3F5RVSOQE"}
+[2026-03-16 10:42:24 INF] HTTP GET /api/v1/Auth/profile responded 200 in 29.2787 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNK3F5RVSOQE:00000002","ConnectionId":"0HNK3F5RVSOQE"}
+[2026-03-16 11:53:13 INF] Checking database connection... {"SourceContext":"Program"}
+[2026-03-16 11:53:14 INF] Database ready. Running seed data... {"SourceContext":"Program"}
+[2026-03-16 11:53:14 INF] Database initialization completed successfully {"SourceContext":"Program"}
+[2026-03-16 11:53:14 INF] AuthService API is running at http://localhost:5084. Health endpoint: http://localhost:5084/health {"SourceContext":"Program"}

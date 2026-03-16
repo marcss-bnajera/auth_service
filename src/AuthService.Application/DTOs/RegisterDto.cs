@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using AuthService.Application.Interfaces;
+using Microsoft.AspNetCore.Http;
 
 namespace AuthService.Application.DTOs;
 
@@ -28,5 +29,5 @@ public class RegisterDto
     [StringLength(8, MinimumLength = 8)]
     public string Phone { get; set; } = string.Empty;
 
-    public IFileData? ProfilePicture { get; set; }
+    public IFormFile? ProfilePicture { get; set; }
 }
