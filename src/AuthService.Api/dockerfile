@@ -1,0 +1,9 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+# Copiamos lo que acabamos de compilar manualmente
+COPY ./publish .
+
+ENV ASPNETCORE_URLS=http://+:80
+ENV ASPNETCORE_ENVIRONMENT=Development
+EXPOSE 80
+ENTRYPOINT ["dotnet", "AuthService.Api.dll"]

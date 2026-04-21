@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Ze9YY0BL5nUFavET9KWl7iHQ42ZAWR7gyxAjLNTAGB0=",
+  "Source": "AuthService.Api",
+  "BasePath": "_content/AuthService.Api",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
