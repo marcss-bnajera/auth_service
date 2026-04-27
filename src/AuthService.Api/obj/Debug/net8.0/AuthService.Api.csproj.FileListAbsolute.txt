@@ -1115,3 +1115,8 @@ C:\2024227\Bimestre 2\auth_service\src\AuthService.Api\obj\Debug\net8.0\refint\A
 C:\2024227\Bimestre 2\auth_service\src\AuthService.Api\obj\Debug\net8.0\AuthService.Api.pdb
 C:\2024227\Bimestre 2\auth_service\src\AuthService.Api\obj\Debug\net8.0\AuthService.Api.genruntimeconfig.cache
 C:\2024227\Bimestre 2\auth_service\src\AuthService.Api\obj\Debug\net8.0\ref\AuthService.Api.dll
+C:\2024227\b2\auth_service\src\AuthService.Api\bin\Debug\net8.0\publish\web.config
+C:\2024227\b2\auth_service\src\AuthService.Api\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\2024227\b2\auth_service\src\AuthService.Api\bin\Debug\net8.0\publish\appsettings.json
+C:\2024227\b2\auth_service\src\AuthService.Api\bin\Debug\net8.0\publish\AuthService.Api.deps.json
+C:\2024227\b2\auth_service\src\AuthService.Api\bin\Debug\net8.0\publish\AuthService.Api.runtimeconfig.json

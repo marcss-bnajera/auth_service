@@ -87,7 +87,7 @@ app.UseSecurityHeaders(policies => policies
         // Permitir conexiones a los orígenes conocidos
         cspBuilder.AddConnectSrc()
             .Self()
-            .CustomSources("http://localhost:5226", "http://localhost:5173", "http://localhost:3000", "https://localhost:3001");
+            .From("http://localhost:5226 http://localhost:5173 http://localhost:3000 https://localhost:3001");
         cspBuilder.AddFrameAncestors().None();
         cspBuilder.AddBaseUri().Self();
         cspBuilder.AddFormAction().Self();
