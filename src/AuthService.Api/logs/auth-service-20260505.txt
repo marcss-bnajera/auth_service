@@ -398,3 +398,6 @@ AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
    at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
    at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
 [2026-05-05 09:13:47 INF] HTTP POST /api/v1/Auth/login responded 400 in 250.7172 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAN3JTN9IV:00000001","ConnectionId":"0HNLAN3JTN9IV"}
+[2026-05-05 09:23:41 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 09:23:42 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 09:23:42 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
