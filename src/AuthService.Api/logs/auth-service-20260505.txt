@@ -1,0 +1,400 @@
+[2026-05-05 07:18:11 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:18:16 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5433'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:18:16 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5433
+ ---> System.Net.Sockets.SocketException (10061): No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlHistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+[2026-05-05 07:19:05 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:19:05 ERR] Failed executing DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT migration_id, product_version
+FROM __ef_migrations_history
+ORDER BY migration_id; {"EventId":{"Id":20102,"Name":"Microsoft.EntityFrameworkCore.Database.Command.CommandError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Command"}
+[2026-05-05 07:19:05 ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE roles (
+    id character varying(16) NOT NULL,
+    name character varying(50) NOT NULL,
+    description character varying(255) NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    CONSTRAINT pk_roles PRIMARY KEY (id)
+); {"EventId":{"Id":20102,"Name":"Microsoft.EntityFrameworkCore.Database.Command.CommandError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Command"}
+[2026-05-05 07:19:05 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.PostgresException (0x80004005): 42P07: relation "roles" already exists
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQueryAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.<>c.<<MigrateAsync>b__22_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P07
+    MessageText: relation "roles" already exists
+    File: heap.c
+    Line: 1177
+    Routine: heap_create_with_catalog
+[2026-05-05 07:20:00 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:20:04 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5433'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:20:04 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5433
+ ---> System.Net.Sockets.SocketException (10061): No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlHistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+[2026-05-05 07:23:30 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:23:35 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5433'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:23:35 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.NpgsqlException (0x80004005): Failed to connect to 127.0.0.1:5433
+ ---> System.Net.Sockets.SocketException (10061): No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at Npgsql.TaskTimeoutAndCancellation.ExecuteAsync(Func`2 getTaskFunc, NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.ConnectAsync(NpgsqlTimeout timeout, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.RawOpen(SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlHistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+[2026-05-05 07:24:30 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:24:31 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5432'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:24:31 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.PostgresException (0x80004005): 28P01: la autentificaci�n password fall� para el usuario �postgres�
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.AuthenticateSASL(List`1 mechanisms, String username, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlHistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+  Exception data:
+    Severity: FATAL
+    SqlState: 28P01
+    MessageText: la autentificaci�n password fall� para el usuario �postgres�
+    File: auth.c
+    Line: 320
+    Routine: auth_failed
+[2026-05-05 07:26:39 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:26:39 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5432'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:26:39 ERR] An error occurred while initializing the database {"SourceContext":"Program"}
+Npgsql.PostgresException (0x80004005): 28P01: la autentificaci�n password fall� para el usuario �postgres�
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.Internal.NpgsqlConnector.AuthenticateSASL(List`1 mechanisms, String username, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Authenticate(String username, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|214_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|33_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|42_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.HistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlHistoryRepository.GetAppliedMigrationsAsync(CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Migrations.Internal.NpgsqlMigrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Program.cs:line 151
+  Exception data:
+    Severity: FATAL
+    SqlState: 28P01
+    MessageText: la autentificaci�n password fall� para el usuario �postgres�
+    File: auth.c
+    Line: 320
+    Routine: auth_failed
+[2026-05-05 07:27:10 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:27:11 ERR] An error occurred using the connection to database 'auth_db' on server 'tcp://localhost:5433'. {"EventId":{"Id":20004,"Name":"Microsoft.EntityFrameworkCore.Database.Connection.ConnectionError"},"SourceContext":"Microsoft.EntityFrameworkCore.Database.Connection"}
+[2026-05-05 07:27:11 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 07:27:11 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 07:32:53 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 07:32:53 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 07:32:53 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 07:38:16 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLALE3TQB6T:00000003","RequestPath":"/health","ConnectionId":"0HNLALE3TQB6T"}
+[2026-05-05 07:38:16 INF] HTTP GET /health responded 200 in 72.8718 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLALE3TQB6T:00000003","ConnectionId":"0HNLALE3TQB6T"}
+[2026-05-05 08:12:55 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 08:12:55 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 08:12:55 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 08:20:10 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 08:20:11 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 08:20:11 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 08:20:37 INF] HTTP OPTIONS /api/v1/Auth/login responded 204 in 3.5134 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAM5T3TV8J:00000001","ConnectionId":"0HNLAM5T3TV8J"}
+[2026-05-05 08:20:37 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAM5T3TV8J:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAM5T3TV8J"}
+[2026-05-05 08:20:37 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAM5T3TV8J:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAM5T3TV8J"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 08:20:37 INF] HTTP POST /api/v1/Auth/login responded 400 in 461.0351 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAM5T3TV8J:00000002","ConnectionId":"0HNLAM5T3TV8J"}
+[2026-05-05 08:21:04 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAM5T3TV8J:00000003","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAM5T3TV8J"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 08:21:04 INF] HTTP POST /api/v1/Auth/login responded 400 in 60.8390 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAM5T3TV8J:00000003","ConnectionId":"0HNLAM5T3TV8J"}
+[2026-05-05 08:27:34 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAM5T3TV8K:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAM5T3TV8K"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 08:27:34 INF] HTTP POST /api/v1/Auth/login responded 400 in 44.9129 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAM5T3TV8K:00000001","ConnectionId":"0HNLAM5T3TV8K"}
+[2026-05-05 08:30:24 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 08:30:25 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 08:30:25 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 08:30:50 INF] HTTP OPTIONS /api/v1/Auth/login responded 204 in 2.6603 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMBJUB7R8:00000001","ConnectionId":"0HNLAMBJUB7R8"}
+[2026-05-05 08:30:50 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAMBJUB7R8:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMBJUB7R8"}
+[2026-05-05 08:30:50 INF] HTTP POST /api/v1/Auth/login responded 400 in 99.5239 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMBJUB7R8:00000002","ConnectionId":"0HNLAMBJUB7R8"}
+[2026-05-05 08:32:46 INF] HTTP POST /api/v1/Auth/login responded 400 in 7.1151 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMBJUB7R8:00000003","ConnectionId":"0HNLAMBJUB7R8"}
+[2026-05-05 08:37:07 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 08:37:07 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 08:37:08 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 08:37:23 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAMF8TDT97:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMF8TDT97"}
+[2026-05-05 08:37:23 INF] HTTP POST /api/v1/Auth/login responded 400 in 154.3137 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMF8TDT97:00000001","ConnectionId":"0HNLAMF8TDT97"}
+[2026-05-05 08:37:54 INF] HTTP POST /api/v1/Auth/login responded 400 in 5.1436 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMF8TDT97:00000002","ConnectionId":"0HNLAMF8TDT97"}
+[2026-05-05 08:39:39 INF] HTTP POST /api/v1/Auth/login responded 400 in 9.7187 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMF8TDT98:00000001","ConnectionId":"0HNLAMF8TDT98"}
+[2026-05-05 08:40:47 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 08:40:47 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 08:40:47 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 08:41:14 INF] HTTP OPTIONS /api/v1/Auth/login responded 204 in 3.7734 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3C:00000001","ConnectionId":"0HNLAMHE13A3C"}
+[2026-05-05 08:41:14 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAMHE13A3C:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMHE13A3C"}
+[2026-05-05 08:41:15 INF] HTTP POST /api/v1/Auth/login responded 400 in 137.0564 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3C:00000002","ConnectionId":"0HNLAMHE13A3C"}
+[2026-05-05 08:41:31 INF] HTTP POST /api/v1/Auth/login responded 400 in 6.9784 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3C:00000003","ConnectionId":"0HNLAMHE13A3C"}
+[2026-05-05 08:41:38 INF] HTTP POST /api/v1/Auth/login responded 400 in 7.3728 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3C:00000004","ConnectionId":"0HNLAMHE13A3C"}
+[2026-05-05 08:50:12 INF] HTTP POST /api/v1/Auth/login responded 400 in 2.0013 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3D:00000001","ConnectionId":"0HNLAMHE13A3D"}
+[2026-05-05 08:50:41 INF] HTTP POST /api/v1/Auth/login responded 400 in 1.7388 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3D:00000002","ConnectionId":"0HNLAMHE13A3D"}
+[2026-05-05 08:50:50 INF] HTTP POST /api/v1/Auth/login responded 400 in 1.9460 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3D:00000003","ConnectionId":"0HNLAMHE13A3D"}
+[2026-05-05 08:50:59 INF] HTTP POST /api/v1/Auth/login responded 400 in 1.4159 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3D:00000004","ConnectionId":"0HNLAMHE13A3D"}
+[2026-05-05 08:54:37 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAMHE13A3F:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMHE13A3F"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 08:54:37 INF] HTTP POST /api/v1/Auth/login responded 400 in 344.0155 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMHE13A3F:00000001","ConnectionId":"0HNLAMHE13A3F"}
+[2026-05-05 09:05:13 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 09:05:13 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 09:05:13 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 09:05:27 INF] HTTP OPTIONS /api/v1/Auth/login responded 204 in 2.3230 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMUURSDIO:00000001","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:05:27 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAMUURSDIO:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:05:27 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAMUURSDIO:00000002","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMUURSDIO"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 09:05:27 INF] HTTP POST /api/v1/Auth/login responded 400 in 246.2109 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMUURSDIO:00000002","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:06:17 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAMUURSDIO:00000003","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMUURSDIO"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 09:06:17 INF] HTTP POST /api/v1/Auth/login responded 400 in 53.5654 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMUURSDIO:00000003","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:08:00 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAMUURSDIO:00000004","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMUURSDIO"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 09:08:00 INF] HTTP POST /api/v1/Auth/login responded 400 in 32.8861 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMUURSDIO:00000004","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:08:07 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAMUURSDIO:00000005","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAMUURSDIO"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 127
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 09:08:07 INF] HTTP POST /api/v1/Auth/login responded 400 in 7.7589 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAMUURSDIO:00000005","ConnectionId":"0HNLAMUURSDIO"}
+[2026-05-05 09:13:26 INF] Initializing database... {"SourceContext":"Program"}
+[2026-05-05 09:13:27 INF] Database initialization completed {"SourceContext":"Program"}
+[2026-05-05 09:13:27 INF] AuthService API is running at http://localhost:5226. Health endpoint: http://localhost:5226/health {"SourceContext":"Program"}
+[2026-05-05 09:13:47 WRN] Failed to determine the https port for redirect. {"EventId":{"Id":3,"Name":"FailedToDeterminePort"},"SourceContext":"Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware","RequestId":"0HNLAN3JTN9IV:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAN3JTN9IV"}
+[2026-05-05 09:13:47 ERR] An unhandled exception occurred {"SourceContext":"AuthService.Api.Middlewares.GlobalExceptionMiddleware","RequestId":"0HNLAN3JTN9IV:00000001","RequestPath":"/api/v1/Auth/login","ConnectionId":"0HNLAN3JTN9IV"}
+AuthService.Application.Exceptions.BusinessException: Credenciales inválidas
+   at AuthService.Application.Services.AuthService.LoginAsync(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Application\Services\AuthService.cs:line 131
+   at AuthService.Api.Controllers.AuthController.Login(LoginDto loginDto) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Controllers\AuthController.cs:line 83
+   at lambda_method22(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.RateLimiting.RateLimitingMiddleware.InvokeInternal(HttpContext context, EnableRateLimitingAttribute enableRateLimitingAttribute)
+   at AuthService.Api.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\2024227\Bimestre 2\kinalSport\auth_service\src\AuthService.Api\Middlewares\GlobalExceptionMiddleware.cs:line 19
+[2026-05-05 09:13:47 INF] HTTP POST /api/v1/Auth/login responded 400 in 250.7172 ms {"SourceContext":"Serilog.AspNetCore.RequestLoggingMiddleware","RequestId":"0HNLAN3JTN9IV:00000001","ConnectionId":"0HNLAN3JTN9IV"}
